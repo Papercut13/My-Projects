@@ -1,0 +1,35 @@
+---
+title: '"NYC Queens 2020 Library Locations"'
+author: "Harsh Trivedi"
+date: "01/01/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# NYC Queens Library Data.
+##(NYC has huge numbers of libraries in the city.This is the visualization of Queens libraries provided by the official NewYork city office. Mapbox was used to visualize the data. 
+
+
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+library(mapboxer)
+```
+
+##Plot:
+
+
+```{r}
+mapboxer(center = c(-73.9165, 40.7114),zoom = 9) %>%
+       add_circle_layer(
+             source = as_mapbox_source(NYC,lng="Longitude",lat = "Latitude"),
+             circle_color = "tomato",
+             circle_radius = 4)%>%
+              add_navigation_control()
+```
+
+
